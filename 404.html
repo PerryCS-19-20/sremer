@@ -17,10 +17,26 @@
         position:relative;
         left:600px;
       }
+      div.sick{
+        color:red;
+        position: relative;
+        animation-name: example;
+        animation-duration: 4s;
+        animation-iteration-count: infinite;
+      }
+      @keyframes example {
+        0%   {background-color:red;}
+        25%  {background-color:yellow;}
+        50%  {background-color:blue;}
+        75%  {background-color:green;}
+        100% {background-color:red;}
+      }
     </style>
   </head>
   <body>
+    <div class="sick">
     <h1>404</h1>
+    </div>
     <div class="center">
     <a href="index.html">Back to the homepage</a>
     </div>
