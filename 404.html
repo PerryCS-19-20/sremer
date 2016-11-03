@@ -14,19 +14,12 @@
         left: 600px;
         color:red;
         animation-name: example;
-        animation-duration: 8s;
+        animation-duration: 16s;
         animation-iteration-count: infinite;
       }
-      div.center{
+      .center{
         position:relative;
         left:600px;
-      }
-      div.sick{
-        color:red;
-        position: relative;
-        animation-name: example;
-        animation-duration: 8s;
-        animation-iteration-count: infinite;
       }
       @keyframes example {
         0%   {color:red;}
@@ -35,14 +28,17 @@
         75%  {color:green;}
         100% {color:red;}
       }
+     a{
+      color:white;
+     }
+     p{
+       font-family: arial;
+      }
     </style>
   </head>
   <body>
-    <div class="sick">
     <h1>404</h1>
-    </div>
-    <div class="center">
-    <a href="index.html">Back to the homepage</a>
-    </div>
+    <p class="center">Whoops! Don't think you meant to come here!</p>
+    <a href="index.html" class="center">Why don't you go back to the homepage?</a>
   </body>
 </html>
