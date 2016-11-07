@@ -1,7 +1,6 @@
 body {
   background-color: SeaShell;
   color: Black;
-  font-family: helvetica;
   }
 h1 {
   font-size: 80px; 
@@ -9,6 +8,6 @@ h1 {
 }
 
 hr {
-  border-width: 2px;
+  border-width: 1px;
   border-color:red;
 }
