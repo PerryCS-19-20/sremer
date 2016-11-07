@@ -1,8 +1,9 @@
 body {
-  background-color: LightBlue;
-  color: white;
+  background-color: Beige;
+  color: Black;
   font-family: helvetica;
   }
 h1 {
-  font-size: 40px; 
+  font-size: 80px; 
+  font-style: italic;
 }
