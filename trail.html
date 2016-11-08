@@ -1,0 +1,86 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Trail</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+		<script type="text/javascript" src="https://static.codehs.com/gulp/cb01b4a22ffd3971572a8a1ab9f3b7c4cb17f383/chs-js-lib/chs.js"></script>
+		<script>
+                      window.onload = function() {
+                           var MAX_BOUNCES = 60;
+
+var ball;
+var bounceNumber = 0;
+var dx = 4;
+var dy = 4;
+
+/* This program has a ball bounce around the screen. 
+ * It's path is drawn by drawing different colored balls everywhere it goes.
+ */
+function start(){
+	ball = new Circle(20);
+	ball.setPosition(100, 100);
+	add(ball);
+	
+	setTimer(draw, 20);
+}
+
+function draw(){
+    if(bounceNumber >= MAX_BOUNCES){
+        stopTimer(draw);
+    }
+	checkWalls();
+	ball.move(dx, dy);
+	trail();
+}
+
+function checkWalls(){
+	// Bounce off right wall
+	if(ball.getX() + ball.getRadius() > getWidth()){
+		dx = -dx;
+		bounceNumber++;
+	}
+	
+	// Bounce off left wall
+	if(ball.getX() - ball.getRadius() < 0){
+		dx = -dx;
+		bounceNumber++;
+	}
+	
+	// Bounce off bottom wall
+	if(ball.getY() + ball.getRadius() > getHeight()){
+		dy = -dy;
+		bounceNumber++;
+	}
+	
+	// Bounce off top wall
+	if(ball.getY() - ball.getRadius() < 0){
+		dy = -dy;
+		bounceNumber++;
+	}
+}
+
+function trail(){
+    var theTrail = new Circle(ball.getRadius()/2);
+    theTrail.setPosition(ball.getX(), ball.getY());
+    theTrail.setColor(Color.cyan);
+    add(theTrail);
+}
+
+                        if (typeof start === 'function') {
+                            start();
+                        }
+                    };
+  	</script>
+		<style>
+			canvas {
+    				border: 1px solid black;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="canvasContainer" width="100%" style="width: 100%; height: 100%; overflow: hidden;">
+			<canvas width="400" height="500" class="codehs-editor-canvas"></canvas>
+		</div>
+	</body>
+</html>
+
