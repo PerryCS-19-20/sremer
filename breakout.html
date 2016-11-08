@@ -6,7 +6,223 @@
 		<script type="text/javascript" src="https://static.codehs.com/gulp/cb01b4a22ffd3971572a8a1ab9f3b7c4cb17f383/chs-js-lib/chs.js"></script>
 		<script>
                       window.onload = function() {
-// ****************** ADD BREAKOUT CODE HERE!!!!
+var NUM_ROWS = 8;
+var BRICK_TOP_OFFSET = 10;
+var BRICK_SPACING = 2;
+var NUM_BRICKS_PER_ROW = 10;
+var BRICK_HEIGHT = 10;
+var SPACE_FOR_BRICKS = getWidth() - (NUM_BRICKS_PER_ROW + 1) * BRICK_SPACING;
+var BRICK_WIDTH = SPACE_FOR_BRICKS / NUM_BRICKS_PER_ROW;
+
+/* global variabls */
+var row = 0;
+var ball;
+var paddle;
+var dx = 6;
+var dy = 6;
+var checkTopArea;
+var checkBottomArea;
+var lives = 3;
+var showLives = new Text("Lives: ");
+var showScore = new Text("Score: ");
+var numberOfBricks = 0;
+var score = 0;
+
+/* Constants for ball and paddle */
+var PADDLE_WIDTH = 80;
+var PADDLE_HEIGHT = 15;
+var PADDLE_OFFSET = 10;
+
+var BALL_RADIUS = 15;
+
+var redOne;
+var redTwo;
+
+function start(){
+	drawBricks(Color.red);
+	drawBricks(Color.orange);
+	drawBricks(Color.green);
+	drawBricks(Color.blue);
+	setTimer(checkLives, 1);
+	setTimer(setScore, 1);
+	ball();
+	paddle();
+}
+
+function setScore(){
+    showScore.setText("Score: " + score);
+    showScore.setPosition(getWidth()-120, getHeight() - 50);
+    add(showScore);
+}
+
+function checkLives(){
+    showLives.setText("Lives: " + lives);
+    showLives.setPosition(0, getHeight() - 50);
+    add(showLives);
+    if(numberOfBricks == 0){
+        stopTimer(draw);
+        var win = new Text("You Won! :)", "30pt Arial");
+        win.setPosition(100, getHeight()/2);
+        win.setColor(Color.black);
+        add(win);
+    }
+}
+
+function paddle(){
+    paddle = new Rectangle(PADDLE_WIDTH, PADDLE_HEIGHT);
+    paddle.setPosition(getWidth()/2 - PADDLE_WIDTH / 2, getHeight() - PADDLE_OFFSET - PADDLE_HEIGHT);
+    add(paddle);
+    setTimer(checkX, 1);
+    mouseMoveMethod(movePaddle);
+}
+
+function checkX(){
+    if(paddle.getX() + PADDLE_WIDTH > getWidth()){
+        paddle.setPosition(getWidth() - PADDLE_WIDTH, getHeight() - PADDLE_OFFSET - PADDLE_HEIGHT);
+    }
+    if(paddle.getX() < 0){
+        paddle.setPosition(0, getHeight() - PADDLE_OFFSET - PADDLE_HEIGHT);
+    }
+}
+function movePaddle(e){
+    if(lives > 0){
+    paddle.setPosition(e.getX() - PADDLE_WIDTH / 2, getHeight() - PADDLE_OFFSET - PADDLE_HEIGHT);
+    }
+}
+
+function drawBricks(color){
+    if(color == Color.red){
+        for(var i = 0; i < NUM_BRICKS_PER_ROW; i++){
+            var brick = new Rectangle(BRICK_WIDTH, BRICK_HEIGHT);
+            brick.setColor(color);
+            brick.setPosition(BRICK_SPACING + (i * BRICK_SPACING) + (BRICK_WIDTH * i), BRICK_TOP_OFFSET);
+            add(brick);
+            redOne = brick;
+            numberOfBricks++;
+        }
+        row++;
+        for(var i = 0; i < NUM_BRICKS_PER_ROW; i++){
+            var brick = new Rectangle(BRICK_WIDTH, BRICK_HEIGHT);
+            brick.setColor(color);
+            brick.setPosition(BRICK_SPACING + (i * BRICK_SPACING) + (BRICK_WIDTH * i), BRICK_TOP_OFFSET + (BRICK_SPACING * row) + (BRICK_HEIGHT * row));
+            add(brick);
+            numberOfBricks++;
+	        }
+        row++;
+    }
+    
+    if(color == Color.orange){
+        for(var i = 0; i < NUM_BRICKS_PER_ROW; i++){
+            var brick = new Rectangle(BRICK_WIDTH, BRICK_HEIGHT);
+            brick.setColor(color);
+            brick.setPosition(BRICK_SPACING + (i * BRICK_SPACING) + (BRICK_WIDTH * i), BRICK_TOP_OFFSET + (BRICK_SPACING * row) + (BRICK_HEIGHT * row));
+            add(brick);
+            numberOfBricks++;
+        }
+        row++;
+        for(var i = 0; i < NUM_BRICKS_PER_ROW; i++){
+            var brick = new Rectangle(BRICK_WIDTH, BRICK_HEIGHT);
+            brick.setColor(color);
+            brick.setPosition(BRICK_SPACING + (i * BRICK_SPACING) + (BRICK_WIDTH * i), BRICK_TOP_OFFSET + (BRICK_SPACING * row) + (BRICK_HEIGHT * row));
+            add(brick);
+            numberOfBricks++;
+        }
+        row++;
+    }
+    
+    if(color == Color.green){
+        for(var i = 0; i < NUM_BRICKS_PER_ROW; i++){
+            var brick = new Rectangle(BRICK_WIDTH, BRICK_HEIGHT);
+            brick.setColor(color);
+            brick.setPosition(BRICK_SPACING + (i * BRICK_SPACING) + (BRICK_WIDTH * i), BRICK_TOP_OFFSET + (BRICK_SPACING * row) + (BRICK_HEIGHT * row));
+            add(brick);
+            numberOfBricks++;
+        }
+        row++;
+        for(var i = 0; i < NUM_BRICKS_PER_ROW; i++){
+            var brick = new Rectangle(BRICK_WIDTH, BRICK_HEIGHT);
+            brick.setColor(color);
+            brick.setPosition(BRICK_SPACING + (i * BRICK_SPACING) + (BRICK_WIDTH * i), BRICK_TOP_OFFSET + (BRICK_SPACING * row) + (BRICK_HEIGHT * row));
+            add(brick);
+            numberOfBricks++;
+        }
+        row++;
+    }
+    
+    if(color == Color.blue){
+        for(var i = 0; i < NUM_BRICKS_PER_ROW; i++){
+            var brick = new Rectangle(BRICK_WIDTH, BRICK_HEIGHT);
+            brick.setColor(color);
+            brick.setPosition(BRICK_SPACING + (i * BRICK_SPACING) + (BRICK_WIDTH * i), BRICK_TOP_OFFSET + (BRICK_SPACING * row) + (BRICK_HEIGHT * row));
+            add(brick);
+            numberOfBricks++;
+        }
+        row++;
+        for(var i = 0; i < NUM_BRICKS_PER_ROW; i++){
+            var brick = new Rectangle(BRICK_WIDTH, BRICK_HEIGHT);
+            brick.setColor(color);
+            brick.setPosition(BRICK_SPACING + (i * BRICK_SPACING) + (BRICK_WIDTH * i), BRICK_TOP_OFFSET + (BRICK_SPACING * row) + (BRICK_HEIGHT * row));
+            add(brick);
+            numberOfBricks++;
+        }
+        row++;
+    }
+}
+
+function ball(){
+    ball = new Circle(BALL_RADIUS);
+	ball.setPosition(getWidth()/2, getHeight()/2);
+	add(ball);
+	setTimer(draw, 20);
+}
+
+function draw(){
+    if(lives == 0){
+        stopTimer(draw);
+        var lost = new Text("You Lost:(", "30pt Arial");
+        lost.setPosition(100, getHeight()/2);
+        lost.setColor(Color.black);
+        add(lost);
+    }
+	checkWalls();
+	ball.move(dx, dy);
+}
+
+function checkWalls(){
+	// Bounce off right wall
+	if(ball.getX() + ball.getRadius() > getWidth()){
+		dx = -dx;
+	}
+	
+	// Bounce off left wall
+	if(ball.getX() - ball.getRadius() < 0){
+		dx = -dx;
+	}
+	
+	// Bounce off bottom wall
+	if(ball.getY() + ball.getRadius() > getHeight()){
+		dy = -dy;
+		lives--;
+	}
+	
+	// Bounce off top wall
+	if(ball.getY() - ball.getRadius() < 0){
+		dy = -dy;
+	}
+	
+	checkBottomArea = getElementAt(ball.getX(), ball.getY() + BALL_RADIUS);
+	if (checkBottomArea != null && checkBottomArea != showLives && checkBottomArea != showScore){
+	    dy = -dy;
+	}
+	checkTopArea = getElementAt(ball.getX(), ball.getY() - BALL_RADIUS);
+	if (checkTopArea != null && checkTopArea != showLives && checkTopArea != showScore && checkTopArea != paddle){
+	    dy = -dy;
+	    remove(checkTopArea);
+	    numberOfBricks--;
+	    score++;
+	}
+}
+
                         if (typeof start === 'function') {
                             start();
                         }
