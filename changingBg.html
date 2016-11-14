@@ -5,12 +5,12 @@
         <link rel="stylesheet" type="text/css" href="style.css">
         <link rel="shortcut icon" type="image/png" href="favicon.ico">
         <script>
-            function movedOver(color){
-                
+            function changeColor(colorName){
+                document.body.style.backgroundColor = colorName;
             }
         </script>
     </head>
     <body>
-        
+        <p onmouseover="changeColor(red)">lots</p> of different words
     </body>
 </html>
