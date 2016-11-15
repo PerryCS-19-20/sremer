@@ -7,12 +7,12 @@
     </head>
     <body>
         <textarea rows="10" cols='80' id='inputText'>Input html test here</textarea>
-        <button onclick='testHTML();'>Test!</button>
+        <button onclick='testHTML();'>Test!</button><br>
         <span id="s1"></span>
         <script>
             function testHTML(){
-                var userInput = document.getElementById(inputText);
-                var theSpan = document.getElementById(s1);
+                var userInput = document.getElementById('inputText');
+                var theSpan = document.getElementById('s1');
                 theSpan.innerHTML = userInput;
             }
         </script>
