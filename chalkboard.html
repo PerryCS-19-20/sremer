@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Chalkboard</title>
+        <style>
+            body {
+                background-color: darkgreen;
+                color: white;
+            }
+        </style>
+    </head>
+    <body>
+        <textarea id="listItem"></textarea>
+        <button onclick="addToList()">Create list</button>
+        <ul id="theList"></ul>
+        <script>
+          function addToList(){
+              var item = document.getElementById('listItem');
+              for(var i = 0; i < 100; i++){
+                  var list = document.getElementById('theList');
+                  list.innerHTML = list.innerHTML + '<li>' + "I will not " + item.value + '</li>';
+              }
+          }  
+        </script>
+    </body>
+</html>
