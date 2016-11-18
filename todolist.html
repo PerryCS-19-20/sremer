@@ -6,10 +6,15 @@
         <link rel="shortcut icon" type="image/png" href="favicon.ico">
     </head>
     <body>
-        <textarea></textarea>
-        <button onclick="">Add to list</button>
+        <textarea id="listItem"></textarea>
+        <button onclick="addToList()">Add to list</button>
+        <ul id="theList"></ul>
         <script>
-            
+          function addToList(){
+              var item = document.getElementById('listItem');
+              var list = document.getElementById('theList');
+              list.innerHTML = list.innerHTML + '<li>' + item.value + '</li>';
+          }  
         </script>
     </body>
 </html>
