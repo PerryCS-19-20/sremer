@@ -30,6 +30,7 @@
                 <td id="8" onclick="play('8');"></td>
                 <td id="9" onclick="play('9');"></td>
             </tr>
+            <span id="winner"></span>
         </table>
         <script>
             var moveNumber = 1;
@@ -43,7 +44,23 @@
                 if(cellClicked.textContent === ""){
                     cellClicked.innerHTML = player;
                     moveNumber = moveNumber + 1;
+                    checkIfWinner();
                 }
+               function checkIfWinner(){
+                   var cellOne = document.getElementById('1');
+                   var cellTwo = document.getElementById('2');
+                   var cellThree = document.getElementById('3');
+                   var cellFour = document.getElementById('4');
+                   var cellFive = document.getElementById('5');
+                   var cellSix = document.getElementById('6');
+                   var cellSeven = document.getElementById('7');
+                   var cellEight = document.getElementById('8');
+                   var cellNine = document.getElementById('9');
+                   var winner = document.getElementById('winner');
+                   if(cellOne === cellTwo && cellOne === cellThree){
+                       winner.innerHTML = cellOne;
+                   }
+               }
             }
         </script>
     </body>
