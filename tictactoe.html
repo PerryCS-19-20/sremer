@@ -30,8 +30,8 @@
                 <td id="8" onclick="play('8');"></td>
                 <td id="9" onclick="play('9');"></td>
             </tr>
-            <span id="winner"></span>
         </table>
+        <span id="winner"></span>
         <script>
             var moveNumber = 1;
             function play(cell){
@@ -47,21 +47,18 @@
                     checkIfWinner();
                 }
                function checkIfWinner(){
-                   var cellOne = document.getElementById('1');
-                   var cellTwo = document.getElementById('2');
-                   var cellThree = document.getElementById('3');
-                   var cellFour = document.getElementById('4');
-                   var cellFive = document.getElementById('5');
-                   var cellSix = document.getElementById('6');
-                   var cellSeven = document.getElementById('7');
-                   var cellEight = document.getElementById('8');
-                   var cellNine = document.getElementById('9');
-                   var winner = document.getElementById('winner');
-                   if(cellOne === cellTwo && cellOne === cellThree){
-                       winner.innerHTML = cellOne;
+                        check3Cells('1','2','3');
                    }
-               }
-            }
+               function check3Cells(c1id, c2id, c3id){
+                   var c1 = document.getElementById(c1id);
+                   var c2 = document.getElementById(c2id);
+                   var c3 = document.getElementById(c3id);
+                   var winner = document.getElementById("winner");
+                   if(c1.textContent == c2.textContent)&&(c2.textContent == c3.textContent)&&(c1.textContent != ""){
+                       winner.innerHTML = c1.textContent;
+                   }
+                 }
+               
         </script>
     </body>
 </html>
