@@ -34,6 +34,7 @@
         <span id="winner"></span>
         <script>
             var moveNumber = 1;
+            var winner = false;
             function play(cell){
                 var cellClicked = document.getElementById(cell);
                 if(moveNumber % 2 === 0){
@@ -41,23 +42,34 @@
                 } else {
                 player = "X";
                 }
-                if(cellClicked.textContent === ""){
+                if(cellClicked.textContent === "" && winner == false){
                     cellClicked.innerHTML = player;
                     moveNumber = moveNumber + 1;
                     checkIfWinner();
                 }
+            }
                function checkIfWinner(){
                         check3Cells('1','2','3');
+                        check3Cells('4','5','6');
+                        check3Cells('7','8','9');
+                        check3Cells('1','4','7');
+                        check3Cells('2','5','8');
+                        check3Cells('3','6','9');
+                        check3Cells('1','5','9');
+                        check3Cells('3','5','7');
                    }
                function check3Cells(c1id, c2id, c3id){
                    var c1 = document.getElementById(c1id);
                    var c2 = document.getElementById(c2id);
                    var c3 = document.getElementById(c3id);
-                   var winner = document.getElementById("winner");
-                   if(c1.textContent == c2.textContent)&&(c2.textContent == c3.textContent)&&(c1.textContent != ""){
-                       winner.innerHTML = c1.textContent;
+                   var winnerText = document.getElementById("winner");
+                   if(c1.textContent == c2.textContent && c2.textContent == c3.textContent && c1.textContent != ""){
+                       winner = true;
                    }
-                 }
+                   if(winner == true){
+                       winnerText.textContent = c1.textContent + " IS THE WINNER!";
+                   }
+               }
                
         </script>
     </body>
