@@ -35,17 +35,18 @@
         <script>
             var moveNumber = 1;
             var winner = false;
+            var player= '';
             function play(cell){
                 var cellClicked = document.getElementById(cell);
-                if(moveNumber % 2 === 0){
-                player = "O";
-                } else {
-                player = "X";
-                }
                 if(cellClicked.textContent === "" && winner == false){
                     cellClicked.innerHTML = player;
                     moveNumber = moveNumber + 1;
                     checkIfWinner();
+                }
+                if(moveNumber % 2 === 0){
+                player = "X";
+                } else {
+                player = "O";
                 }
             }
                function checkIfWinner(){
@@ -67,7 +68,7 @@
                        winner = true;
                    }
                    if(winner == true){
-                       winnerText.textContent = c1.textContent + " IS THE WINNER!";
+                       winnerText.textContent = player + " IS THE WINNER!";
                    }
                }
                
