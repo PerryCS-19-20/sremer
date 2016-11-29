@@ -1,11 +1,54 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Multiply Table</title>
+        <title>Times Table</title>
         <link rel="stylesheet" type="text/css" href="style.css">
         <link rel="shortcut icon" type="image/png" href="favicon.ico">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <style>
+            table, td, th {
+                border: solid 1px;
+            }
+            td {
+                text-align: right;
+            }
+        </style>
     </head>
-    <body>
+    <body onload="buildTimesTable();">
+        <script>
+            var rowNumber = 1;
+            function buildTimesTable(){
+                var timesTable = document.createElement('table');
+                timesTable.id = "timesTable";
+                var body = document.body;
+                body.appendChild(timesTable);
+                /*
+                if(rowNumber === 1){
+                    timesTable.innerHTML = timesTable.innerHTML + "<tr>";
+                    for(var i = 1; i < 11; i++){
+                        timesTable.innerHTML =  timesTable.innerHTML + "<th>" + i + "</th>";
+                    }
+                    timesTable.innerHTML =  timesTable.innerHTML + "</tr>";
+                }*/
         
+                for(var i = 0; i < 11; i++){
+                    var row = document.createElement('tr');
+                    timesTable.appendChild(row);
+                    for(var x = 0; x < 11; x++){
+                        if(i != 0){
+                        var cell = document.createElement('td');
+                        row.appendChild(cell);
+                        cell.textContent = i * x;
+                        }
+                        if(i == 0){
+                            var cell = document.creatElement('th');
+                            row.appendChild(cell);
+                            cell.textContent = i * X;
+                        }
+                    }
+                }
+            }
+        </script>
     </body>
 </html>
