@@ -23,29 +23,28 @@
                 timesTable.id = "timesTable";
                 var body = document.body;
                 body.appendChild(timesTable);
-                /*
-                if(rowNumber === 1){
-                    timesTable.innerHTML = timesTable.innerHTML + "<tr>";
-                    for(var i = 1; i < 11; i++){
-                        timesTable.innerHTML =  timesTable.innerHTML + "<th>" + i + "</th>";
-                    }
-                    timesTable.innerHTML =  timesTable.innerHTML + "</tr>";
-                }*/
-        
                 for(var i = 0; i < 11; i++){
                     var row = document.createElement('tr');
                     timesTable.appendChild(row);
                     for(var x = 0; x < 11; x++){
-                        if(i != 0){
-                        var cell = document.createElement('td');
-                        row.appendChild(cell);
-                        cell.textContent = i * x;
-                        }
-                        if(i == 0){
-                            var cell = document.creatElement('th');
+                        if(i != 0 && x != 0){
+                            var cell = document.createElement('td');
                             row.appendChild(cell);
-                            cell.textContent = i * X;
+                            cell.textContent = i * x;
+                        }else if(i == 0 && x != 0){
+                            var cell = document.createElement('th');
+                            row.appendChild(cell);
+                            cell.textContent = x;
+                        }else if(i != 0 && x == 0){
+                            var cell = document.createElement('th');
+                            row.appendChild(cell);
+                            cell.textContent = i;
+                        }else if(i == 0 && x == 0){
+                            var cell = document.createElement('th');
+                            row.appendChild(cell);
+                            cell.textContent = "";
                         }
+                        
                     }
                 }
             }
