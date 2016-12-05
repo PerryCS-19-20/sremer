@@ -16,8 +16,8 @@
         </style>
     </head>
     <body onload="buildTimesTable();">
-        Table Width:<input type="range" id='tableWidth' min='200' max='1000' value='200' onchange='buildTimesTable();'><br>
-        Table Height:<input type="range" id='tableHeight' min='200' max='1000' value='200' onchange='buildTimesTable();'><br>
+        Table Width:<input type="range" id='tableWidth' min='2' max='21' value='11' onchange='buildTimesTable();'><br>
+        Table Height:<input type="range" id='tableHeight' min='2' max='21' value='11' onchange='buildTimesTable();'><br>
         <script>
             function buildTimesTable(){
                 var timesTable = document.getElementById('timesTable');
@@ -27,16 +27,16 @@
                 timesTable = document.createElement('table');
                 timesTable.id = "timesTable";
                 var width = document.getElementById('tableWidth').value;
-                timesTable.style.width = width + 'px';
+                
                 var height = document.getElementById('tableHeight').value;
-                timesTable.style.height = height + 'px';
+               
                 var body = document.body;
                 body.appendChild(timesTable);
 
-                for(var i = 0; i < 11; i++){
+                for(var i = 0; i < height; i++){
                     var row = document.createElement('tr');
                     timesTable.appendChild(row);
-                    for(var x = 0; x < 11; x++){
+                    for(var x = 0; x < width; x++){
                         if(i != 0 && x != 0){
                             var cell = document.createElement('td');
                             if(i % 3 == 0 || x % 3 == 0){
