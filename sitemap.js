@@ -1,28 +1,29 @@
 function buildMap(placeForList){
     var list = document.createElement('ul');
     list.id = 'list';
+    
     makeLink('index.html', 'Home Page', list);
     makeLink('bio.html', 'Biography', list);
-    makeLink('popup.html', 'Popup', list);
-    makeLink('breakout.html', 'Breakout', list);
-    makeLink('trail.html', 'Trail', list);
-    makeLink('changingBg.html', 'Changing Background', list);
-    makeLink('htmltest.html', 'HTML test', list);
-    makeLink('todolist.html', 'To Do List', list);
-    makeLink('chalkboard.html', 'Chalkboard', list);
-    makeLink('tictactoe.html', 'Tic Tac Toe', list);
-    makeLink('multiplytable.html', 'Times Table', list);
-    makeLink('bettertimestable.html', 'Better Times Table', list);
-    makeLink('404.html', '404 Page', list);
-   
-    /*var home = document.createElement('li');
-    var homeLink = document.createElement('a');
-    homeLink.href = 'index.html';
-    var homeText = document.createTextNode('Home Page');
-    homeLink.appendChild(homeText);
-    home.appendChild(homeLink);
-    list.appendChild(home);*/
+     makeLink('404.html', '404 Page', list);
+     
+    var listItem = document.createElement('li');
+    var text = document.createTextNode('Class Projects');
+    listItem.appendChild(text);
+    list.appendChild(listItem);
+    var secondList = document.createElement('ul');
+    list.appendChild(secondList);
     
+    makeLink('popup.html', 'Popup', secondList);
+    makeLink('breakout.html', 'Breakout', secondList);
+    makeLink('trail.html', 'Trail', secondList);
+    makeLink('changingBg.html', 'Changing Background', secondList);
+    makeLink('htmltest.html', 'HTML test', secondList);
+    makeLink('todolist.html', 'To Do List', secondList);
+    makeLink('chalkboard.html', 'Chalkboard', secondList);
+    makeLink('tictactoe.html', 'Tic Tac Toe', secondList);
+    makeLink('multiplytable.html', 'Times Table', secondList);
+    makeLink('bettertimestable.html', 'Better Times Table', secondList);
+   
     var listPlace = document.getElementById(placeForList);
     listPlace.appendChild(list);    
 }
