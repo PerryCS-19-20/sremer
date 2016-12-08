@@ -4,7 +4,7 @@ function buildMap(placeForList){
     
     makeLink('index.html', 'Home Page', list);
     makeLink('bio.html', 'Biography', list);
-     makeLink('404.html', '404 Page', list);
+    makeLink('404.html', '404 Page', list);
      
     var listItem = document.createElement('li');
     var text = document.createTextNode('Class Projects');
