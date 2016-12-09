@@ -23,6 +23,7 @@ function buildMap(placeForList){
     makeLink('tictactoe.html', 'Tic Tac Toe', secondList);
     makeLink('multiplytable.html', 'Times Table', secondList);
     makeLink('bettertimestable.html', 'Better Times Table', secondList);
+    makeLink('calculator.html', 'Calculator', secondList);
    
     var listPlace = document.getElementById(placeForList);
     listPlace.appendChild(list);    
