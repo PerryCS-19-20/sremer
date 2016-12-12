@@ -10,7 +10,7 @@
         <h1>a<sup>2</sup> + b<sup>2</sup> = c<sup>2</sup></h1>
         a: <input type="number" id="a"><br>
         b: <input type="number" id="b"><br>
-        <button onclick="calc()">Calculate</button><br>
+        <button onclick="calc();">Calculate</button><br>
         <br>
         <hr>  
         <br>
@@ -20,7 +20,8 @@
                 var a = parseFloat(document.getElementById('a').value);
                 var b = parseFloat(document.getElementById('b').value);
                 var c = document.getElementById('c');
-                var cValue = (a * a) + (b * b)
+                var cValue = (a * a) + (b * b);
+                c.value = Math.sqrt(cValue).toFixed(2);
             }
         </script>
     </body>
