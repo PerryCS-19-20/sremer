@@ -2,7 +2,8 @@
     position: relative;
     padding: 0px;
     display: block;
-background-color: grey;
+    background-color: blue;
+    color: white;
 }
 
 
@@ -33,7 +34,7 @@ text-indent: 0px;
 #menubar ul ul {
     display: none;
     position: absolute;
-background-color: lightgrey;
+background-color: lightblue;
 padding: 0px;
 }
 
@@ -49,7 +50,7 @@ padding: 0px;
 /* Make menu links look normal */
 #menubar a {
     display: block;
-color: black;
+color: white;
     padding: 8px;
     text-decoration: none;
 }
