@@ -4,15 +4,15 @@ function buildMap(placeForList){
     
     makeLink('index.html', 'Home Page', list);
     makeLink('bio.html', 'Biography', list);
-    makeLink('404.html', '404 Page', list);
      
     var listItem = document.createElement('li');
     var text = document.createTextNode('Class Projects');
     listItem.appendChild(text);
     list.appendChild(listItem);
     var secondList = document.createElement('ul');
-    list.appendChild(secondList);
+    listItem.appendChild(secondList);
     
+    makeLink('404.html', '404 Page', secondList);
     makeLink('popup.html', 'Popup', secondList);
     makeLink('breakout.html', 'Breakout', secondList);
     makeLink('trail.html', 'Trail', secondList);
